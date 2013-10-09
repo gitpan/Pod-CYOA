@@ -1,14 +1,14 @@
 use strict;
 use warnings;
 package Pod::CYOA;
-BEGIN {
-  $Pod::CYOA::VERSION = '0.001';
+{
+  $Pod::CYOA::VERSION = '0.002';
 }
 # ABSTRACT: Pod-based Choose Your Own Adventure website generator (?!)
 1;
 
-
 __END__
+
 =pod
 
 =head1 NAME
@@ -17,7 +17,7 @@ Pod::CYOA - Pod-based Choose Your Own Adventure website generator (?!)
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 OVERVIEW
 
@@ -48,10 +48,9 @@ Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Ricardo SIGNES.
+This software is copyright (c) 2013 by Ricardo SIGNES.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

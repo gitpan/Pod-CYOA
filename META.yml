@@ -3,11 +3,14 @@ abstract: 'Pod-based Choose Your Own Adventure website generator (?!)'
 author:
   - 'Ricardo SIGNES <rjbs@cpan.org>'
 build_requires:
+  File::Spec: 0
+  IO::Handle: 0
+  IPC::Open3: 0
   Test::More: 0.96
 configure_requires:
-  ExtUtils::MakeMaker: 6.31
+  ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.102342, CPAN::Meta::Converter version 2.102400'
+generated_by: 'Dist::Zilla version 4.300039, CPAN::Meta::Converter version 2.132661'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -18,99 +21,132 @@ requires:
   Pod::Elemental::Transformer: 0
   Pod::Elemental::Types: 0
   Pod::Simple::XHTML: 3.13
+  base: 0
+  strict: 0
+  warnings: 0
 resources:
-  repository: git://git.codesimply.com/Pod-CYOA.git
-version: 0.001
+  bugtracker: https://github.com/rjbs/Pod-CYOA/issues
+  homepage: https://github.com/rjbs/Pod-CYOA
+  repository: https://github.com/rjbs/Pod-CYOA.git
+version: 0.002
 x_Dist_Zilla:
+  perl:
+    version: 5.019004
   plugins:
     -
-      class: Dist::Zilla::Plugin::GatherDir
-      name: '@RJBS/@Basic/GatherDir'
-      version: 4.102342
+      class: Dist::Zilla::Plugin::Git::GatherDir
+      name: '@RJBS/Git::GatherDir'
+      version: 2.014
+    -
+      class: Dist::Zilla::Plugin::CheckPrereqsIndexed
+      name: '@RJBS/CheckPrereqsIndexed'
+      version: 0.009
+    -
+      class: Dist::Zilla::Plugin::CheckExtraTests
+      name: '@RJBS/CheckExtraTests'
+      version: 0.011
+    -
+      class: Dist::Zilla::Plugin::PromptIfStale
+      name: '@RJBS/RJBS-Outdated'
+      version: 0.007
+    -
+      class: Dist::Zilla::Plugin::PromptIfStale
+      name: '@RJBS/CPAN-Outdated'
+      version: 0.007
     -
       class: Dist::Zilla::Plugin::PruneCruft
-      name: '@RJBS/@Basic/PruneCruft'
-      version: 4.102342
+      name: '@RJBS/@Filter/PruneCruft'
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::ManifestSkip
-      name: '@RJBS/@Basic/ManifestSkip'
-      version: 4.102342
+      name: '@RJBS/@Filter/ManifestSkip'
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::MetaYAML
-      name: '@RJBS/@Basic/MetaYAML'
-      version: 4.102342
+      name: '@RJBS/@Filter/MetaYAML'
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::License
-      name: '@RJBS/@Basic/License'
-      version: 4.102342
+      name: '@RJBS/@Filter/License'
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::Readme
-      name: '@RJBS/@Basic/Readme'
-      version: 4.102342
-    -
-      class: Dist::Zilla::Plugin::ExtraTests
-      name: '@RJBS/@Basic/ExtraTests'
-      version: 4.102342
+      name: '@RJBS/@Filter/Readme'
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::ExecDir
-      name: '@RJBS/@Basic/ExecDir'
-      version: 4.102342
+      name: '@RJBS/@Filter/ExecDir'
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::ShareDir
-      name: '@RJBS/@Basic/ShareDir'
-      version: 4.102342
+      name: '@RJBS/@Filter/ShareDir'
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::MakeMaker
-      name: '@RJBS/@Basic/MakeMaker'
-      version: 4.102342
+      name: '@RJBS/@Filter/MakeMaker'
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::Manifest
-      name: '@RJBS/@Basic/Manifest'
-      version: 4.102342
+      name: '@RJBS/@Filter/Manifest'
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::TestRelease
-      name: '@RJBS/@Basic/TestRelease'
-      version: 4.102342
+      name: '@RJBS/@Filter/TestRelease'
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::ConfirmRelease
-      name: '@RJBS/@Basic/ConfirmRelease'
-      version: 4.102342
+      name: '@RJBS/@Filter/ConfirmRelease'
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::UploadToCPAN
-      name: '@RJBS/@Basic/UploadToCPAN'
-      version: 4.102342
+      name: '@RJBS/@Filter/UploadToCPAN'
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::AutoPrereqs
       name: '@RJBS/AutoPrereqs'
-      version: 4.102342
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::Git::NextVersion
       name: '@RJBS/Git::NextVersion'
-      version: 1.102810
+      version: 2.014
     -
       class: Dist::Zilla::Plugin::PkgVersion
       name: '@RJBS/PkgVersion'
-      version: 4.102342
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::MetaConfig
       name: '@RJBS/MetaConfig'
-      version: 4.102342
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::MetaJSON
       name: '@RJBS/MetaJSON'
-      version: 4.102342
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::NextRelease
       name: '@RJBS/NextRelease'
-      version: 4.102342
+      version: 4.300039
+    -
+      class: Dist::Zilla::Plugin::Test::ChangesHasContent
+      name: '@RJBS/Test::ChangesHasContent'
+      version: 0.006
     -
       class: Dist::Zilla::Plugin::PodSyntaxTests
       name: '@RJBS/PodSyntaxTests'
-      version: 4.102342
+      version: 4.300039
     -
-      class: Dist::Zilla::Plugin::Repository
-      name: '@RJBS/Repository'
-      version: 0.14
+      class: Dist::Zilla::Plugin::ReportVersions::Tiny
+      name: '@RJBS/ReportVersions::Tiny'
+      version: 1.10
+    -
+      class: Dist::Zilla::Plugin::Test::Compile
+      config:
+        Dist::Zilla::Plugin::Test::Compile:
+          module_finder:
+            - ':InstallModules'
+          script_finder:
+            - ':ExecFiles'
+      name: '@RJBS/Test::Compile'
+      version: 2.034
     -
       class: Dist::Zilla::Plugin::Prereqs
       config:
@@ -118,45 +154,63 @@ x_Dist_Zilla:
           phase: test
           type: requires
       name: '@RJBS/TestMoreWithSubtests'
-      version: 4.102342
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::PodWeaver
+      config:
+        Dist::Zilla::Plugin::PodWeaver:
+          config_plugin: '@RJBS'
+          finder:
+            - ':InstallModules'
+            - ':ExecFiles'
       name: '@RJBS/PodWeaver'
-      version: 3.101641
+      version: 3.102000
+    -
+      class: Dist::Zilla::Plugin::GithubMeta
+      name: '@RJBS/GithubMeta'
+      version: 0.42
     -
       class: Dist::Zilla::Plugin::Git::Check
       name: '@RJBS/@Git/Check'
-      version: 1.102810
+      version: 2.014
     -
       class: Dist::Zilla::Plugin::Git::Commit
       name: '@RJBS/@Git/Commit'
-      version: 1.102810
+      version: 2.014
     -
       class: Dist::Zilla::Plugin::Git::Tag
       name: '@RJBS/@Git/Tag'
-      version: 1.102810
+      version: 2.014
     -
       class: Dist::Zilla::Plugin::Git::Push
       name: '@RJBS/@Git/Push'
-      version: 1.102810
+      version: 2.014
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':InstallModules'
-      version: 4.102342
+      version: 4.300039
+    -
+      class: Dist::Zilla::Plugin::FinderCode
+      name: ':IncModules'
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':TestFiles'
-      version: 4.102342
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':ExecFiles'
-      version: 4.102342
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':ShareFiles'
-      version: 4.102342
+      version: 4.300039
+    -
+      class: Dist::Zilla::Plugin::FinderCode
+      name: ':MainModule'
+      version: 4.300039
   zilla:
     class: Dist::Zilla::Dist::Builder
     config:
       is_trial: 0
-    version: 4.102342
+    version: 4.300039
